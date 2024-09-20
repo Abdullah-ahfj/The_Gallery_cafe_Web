@@ -1,0 +1,231 @@
+<?php
+// Start the session
+session_start();
+
+// Check if the user is logged in as customer
+if (!isset($_SESSION['username']) || $_SESSION['userType'] !== 'customer') {
+    // If not logged in as customer, redirect to login page
+    header("Location: login.html");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gallery Café</title>
+    <link rel="shortcut icon" href="images\Screenshot (4).png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="home.css">
+    <script src="home.js" defer></script>
+    
+</head>
+
+<body>
+    <div id="navigation">
+        <div class ="logo_container">
+            <a href="#" id="logo">The Gallery Café<br></a>
+            Beyond a Meal
+        </div>
+
+        <div id="menu">
+            <a href="customer_dashboard.php" style="color: black; border-bottom: 1px solid black; font-size: 18px; background-color: white;"> Home</a>
+            <a href="menu.php">Menu</a>
+            <a href="pre_order.php">Pre-Order</a>
+            <a href="reservation.html">Reservations</a>
+            <a href="promotion.html">Promotions</a>
+            <a href="user.php">User Account</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="aboutus.html">About Us</a>
+            
+        </div>
+        <a class="LogoutL" href="logout.php">Logout</a>
+        
+    </div>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="images\hero1.png" alt="Image 1">
+        </div>
+        
+        <div class="mySlides fade">
+            <img src="images\hero2.jpg" alt="Image 2">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="images\hero3.jpg" alt="Image 3">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="images\hero3.jpg" alt="Image 2">
+        </div>
+    </div>
+
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+    <div class="container">
+        <div class="slider-wrapper">
+            <button id="prev-btn" class="slide-button material-symbols-rounded">
+                chevron_left
+            </button>
+            <h2 class="p_dishes">Our Most Popular Deals</h2>
+            <ul class="image-list">
+
+                <div class="image-item cn">
+                    <img src="images\Arabic\Arabic1-hummus.jpg" alt="img-1" class="image">
+                    <div class="overlay">
+                        <div class="ovrtitle">Hummus</div>
+                        <a href="pre_order.php" class="info">Pre-order</a><br>
+                        <a href="menu.php" class="text">View All Meals</a>
+                    </div>
+                </div>
+
+                <div class="image-item cn">
+                    <img src="images\Italian\Italian1-Pasta.jpg" alt="img-1" class="image">
+                    <div class="overlay">
+                        <div class="ovrtitle">Italian Pasta</div>
+                        <a href="pre_order.php" class="info">Pre-order</a><br>
+                        <a href="menu.php" class="text">View All Meals</a>
+                    </div>
+                </div>
+
+                <div class="image-item cn">
+                    <img src="images\Italian\Italian2-Spaghetti.jpg" alt="img-1" class="image">
+                    <div class="overlay">
+                        <div class="ovrtitle">Spaghetti</div>
+                        <a href="pre_order.php" class="info">Pre-order</a><br>
+                        <a href="menu.php" class="text">View All Meals</a>
+                    </div>
+                </div>
+
+                <div class="image-item cn">
+                    <img src="images\Chinese\Chinese3-Dumping.jpg" alt="img-1" class="image">
+                    <div class="overlay">
+                        <div class="ovrtitle">Dumping</div>
+                        <a href="pre_order.php" class="info">Pre-order</a><br>
+                        <a href="menu.php" class="text">View All Meals</a>
+                    </div>
+                </div>
+
+                <div class="image-item cn">
+                    <img src="images\Indian\Indian-chicken biryani.jpg" alt="img-1" class="image">
+                    <div class="overlay">
+                        <div class="ovrtitle">Chicken Biriyani</div>
+                        <a href="pre_order.php" class="info">Pre-order</a><br>
+                        <a href="menu.php" class="text">View All Meals</a>
+                    </div>
+                </div>
+
+                <div class="image-item cn">
+                    <img src="images\hero2.jpg" alt="img-1" class="image">
+                    <div class="overlay">
+                        <div class="ovrtitle">Burger</div>
+                        <a href="pre_order.php" class="info">Pre-order</a><br>
+                        <a href="menu.php" class="text">View All Meals</a>
+                    </div>
+                </div>
+            </ul>
+            <button id="next-btn" class="slide-button material-symbols-rounded">
+                chevron_right
+            </button>
+        </div>
+        
+    </div>
+
+
+
+
+
+    <div class="row1">
+        <div class="col">
+           
+          
+                <!-- Image on the left -->
+                <div class="container">
+                    <div class="slider-wrapper-prom">
+                        
+                        <h2 class="promo">SPECIAL PROMOTIONS</h2>
+                        <ul class="image-list">
+                            <div class="image-item cn">
+                                <img src="images\Promotions\Visa-off.png" alt="img-1" class="image">
+                                <div class="overlay">
+                                    
+                                    <a href="menu.php" class="info">View Menu</a><br>
+                                    
+                                </div>
+                            </div>
+                            <div class="image-item cn">
+                                <img src="images\Promotions\Best-Seller-off.png" alt="img-1" class="image">
+                                <div class="overlay">
+                                    
+                                    <a href="menu.php" class="info">View Menu</a><br>
+                                    
+                                </div>
+                            </div>
+                            <div class="image-item cn">
+                                <img src="images\Promotions\2nd-order-offer.png" alt="img-1" class="image">
+                                <div class="overlay">
+                                    
+                        <a href="menu.php" class="info">View Menu</a><br>
+                        
+                                </div>
+                            </div>                
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+        <footer id="picassoFooter">
+            <div class="footer-navigation">
+                <h3>Quick Links</h3>
+                <ul class="quicklink">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">contact us</a></li>
+                </ul>
+            </div>
+            <div class="footer-navigation">
+                <h3>Contact Us</h3>
+                <p>Email: info@thegallerycafe.com</p>
+                <p>Phone: 0771148418</p>
+                
+            </div>
+            <div class="footer-navigation">
+                <h3>Policy</h3>
+                <ul class="quicklink">
+                    <li><a href="Terms&Conditions.html">Terms & Conditions</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-navigation">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com" class="fa fa-twitter"></a>
+                    <a href="https://instagram.com" class="fa fa-instagram"></a>
+                </div>
+            </div>
+            <div class ="logo_container" style="position: relative;">
+                <a href="home.html" id="logo">The Gallery Café<br></a>
+                Beyond a Meal
+            </div>
+            <p style="color: black; margin-top: 50px; padding-bottom: 0%;">&copy; 2024 The Gallery Café. All rights reserved.</p>
+        </footer>
+   
+</body>
+
+</html>

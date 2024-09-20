@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> The Gallery Café | Reservations</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+             margin: 0;
+             background-size: cover;
+             background-position: center;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 120vh; /* Set minimum height to 120vh */
+        }
+
+        .container{
+            margin-top: 54px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container h1 {
+            text-align: center;
+            margin-bottom: 0;
+            color: #176999;
+        }
+
+        #parking-form {
+            background-color: #537f99;
+            padding: 30px 54px 30px 54px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        input, select, textarea {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 40px; /* Reduced height for the textarea */
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .error {
+            color: red;
+        }
+
+        #slots {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .slot {
+            padding: 10px;
+            background-color: #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navigation">
+        <div class ="logo_container">
+            <a href="#" id="logo">The Gallery Café<br></a>
+            Beyond a Meal
+        </div>
+
+        <div id="menu">
+            <a href="customer_dashboard.php" > Home</a>
+            <a href="menu.php">Menu</a>
+            <a href="pre_order.php">Pre-Order</a>
+            <a href="reservation.html" style="color: black; border-bottom: 1px solid black; font-size: 18px; background-color: white;">Reservations</a>
+            <a href="promotion.html">Promotions</a>
+            <a href="user.php">User Account</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="aboutus.html" >About Us</a>
+            
+        </div>
+        <a class="LogoutL" href="logout.php">Logout</a>
+        
+    </div>
+    <div class="container" >
+        <h1>Table Reservation</h1>
+        <form id="parking-form" action="reservation.php" method="post" onsubmit="bookSlot();">
+        
+            <label for="user">Name:</label>
+            <input type="text" id="customer_id" name="user" >
+    
+            <label for="date">Reservation Date:</label>
+            <input type="date" id="date" name="date">
+    
+            <label for="duration">Select Hours:</label>
+            <select id="duration" name="duration">
+    
+                <option value="1">1 Hour</option>
+                <option value="2">2 Hours</option>
+                <option value="3">3 Hours</option>
+                <option value="4">4 Hours</option>
+                <option value="5">5 Hours</option>
+                <option value="6">6 Hours</option>
+                <option value="7">7 Hours</option>
+                <!-- Add more options as needed -->
+            </select>
+    
+            <label for="slot">Select Table:</label>
+            <select id="slot" name="slot">
+                <!-- Add more options as needed -->
+                <!-- Added 30 slots -->
+                <option value="1">Table 1</option>
+                <option value="2">Table 2</option>
+                <option value="3">Table 3</option>
+                <option value="4">Table 4</option>
+                <option value="5">Table 5</option>
+                <option value="6">Table 6</option>
+                <option value="7">Table 7</option>
+                <option value="8">Table 8</option>
+                <option value="9">Table 9</option>
+                <option value="10">Table 10</option>
+                <option value="11">Table 11</option>
+                <option value="12">Table 12</option>
+                <option value="13">Table 13</option>
+                <option value="14">Table 14</option>
+                <option value="15">Table 15</option>
+                <option value="16">Table 16</option>
+                <option value="17">Table 17</option>
+                <option value="18">Table 18</option>
+                <option value="19">Table 19</option>
+                <option value="20">Table 20</option>
+                <option value="21">Table 21</option>
+                <option value="22">Table 22</option>
+                <option value="23">Table 23</option>
+                <option value="24">Table 24</option>
+                <option value="25">Table 25</option>
+                <option value="26">Table 26</option>
+                <option value="27">Table 27</option>
+                <option value="28">Table 28</option>
+                <option value="29">Table 29</option>
+                <option value="30">Table 30</option>
+            </select>
+    
+            <button type="submit">Book Table</button>
+    
+    
+            <div id="result"></div>
+    
+            <div id="slots">
+                <!-- Updated grid layout with 30 slots -->
+                <div class="slot" id="slot1">Table 1: Available</div>
+                <div class="slot" id="slot2">Table 2: Available</div>
+                <div class="slot" id="slot3">Table 3: Available</div>
+                <div class="slot" id="slot4">Table 4: Available</div>
+                <div class="slot" id="slot5">Table 5: Available</div>
+                <div class="slot" id="slot6">Table 6: Available</div>
+                <div class="slot" id="slot7">Table 7: Available</div>
+                <div class="slot" id="slot8">Table 8: Available</div>
+                <div class="slot" id="slot9">Table 9: Available</div>
+                <div class="slot" id="slot10">Table 10: Available</div>
+                <div class="slot" id="slot11">Table 11: Available</div>
+                <div class="slot" id="slot12">Table 12: Available</div>
+                <div class="slot" id="slot13">Table 13: Available</div>
+                <div class="slot" id="slot14">Table 14: Available</div>
+                <div class="slot" id="slot15">Table 15: Available</div>
+                <div class="slot" id="slot16">Table 16: Available</div>
+                <div class="slot" id="slot17">Table 17: Available</div>
+                <div class="slot" id="slot18">Table 18: Available</div>
+                <div class="slot" id="slot19">Table 19: Available</div>
+                <div class="slot" id="slot20">Table 20: Available</div>
+                <div class="slot" id="slot21">Table 21: Available</div>
+                <div class="slot" id="slot22">Table 22: Available</div>
+                <div class="slot" id="slot23">Table 23: Available</div>
+                <div class="slot" id="slot24">Table 24: Available</div>
+                <div class="slot" id="slot25">Table 25: Available</div>
+                <div class="slot" id="slot26">Table 26: Available</div>
+                <div class="slot" id="slot27">Table 27: Available</div>
+                <div class="slot" id="slot28">Table 28: Available</div>
+                <div class="slot" id="slot29">Table 29: Available</div>
+                <div class="slot" id="slot30">Table 30: Available</div>
+            </div>
+        </form>
+    
+
+    </div>
+    <script>
+        var bookedSlot = [];
+        var availableSlots = {
+            '1': true,
+            '2': true,
+            '3': true,
+            '4': true,
+            '5': true,
+            '6': true,
+            '7': true,
+            '8': true,
+            '9': true,
+            '10': true,
+            '11': true,
+            '12': true,
+            '13': true,
+            '14': true,
+            '15': true,
+            '16': true,
+            '17': true,
+            '18': true,
+            '19': true,
+            '20': true,
+            '21': true,
+            '22': true,
+            '23': true,
+            '24': true,
+            '25': true,
+            '26': true,
+            '27': true,
+            '28': true,
+            '29': true,
+            '30': true
+        };
+        
+        if(bookedSlot.length>0){
+            for (let i = 0; i < bookedSlot.length; i++) {
+                availableSlots[bookedSlot[i]] = false;
+                document.getElementById(`slot${bookedSlot[i]}`).innerHTML = `Table ${bookedSlot[i]}: Booked `;
+                document.getElementById(`slot${bookedSlot[i]}`).style.backgroundColor = '#ff8080';
+                
+            }
+        }
+
+        function bookSlot() {
+            var carNo = document.getElementById("customer_id").value;
+            var date = document.getElementById("date").value;
+            var duration = parseInt(document.getElementById("duration").value);
+            var selectedSlot = document.getElementById("slot").value;
+            
+            
+    
+            // Check if the selected slot is available
+            if (availableSlots[selectedSlot]) {
+                let i = 0;
+                // Update available slots and display success message
+                availableSlots[selectedSlot] = false;
+                document.getElementById("result").innerHTML = `Parking booked for ${duration} hours on ${date}.`;
+    
+                // Update the slot status
+                document.getElementById(`slot${selectedSlot}`).innerHTML = `Table ${selectedSlot}: Booked `;
+                document.getElementById(`slot${selectedSlot}`).style.backgroundColor = '#ff8080';
+
+
+                bookedSlot[i] = selectedSlot;
+                i++;
+            } else {
+                // Display error message if the selected slot is not available
+                document.getElementById("result").innerHTML = `<span class="error">Table ${selectedSlot} is not available for ${duration} hours on ${date}.</span>`;
+            }
+    
+            // Prevent the form from submitting to the action URL
+            return false;
+        }
+    </script>
+
+<footer id="picassoFooter">
+    <div class="footer-navigation">
+        <h3>Quick Links</h3>
+        <ul class="quicklink">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">contact us</a></li>
+        </ul>
+    </div>
+    <div class="footer-navigation">
+        <h3>Contact Us</h3>
+        <p>Email: info@thegallerycafe.com</p>
+        <p>Phone: 0771148418</p>
+        
+    </div>
+    <div class="footer-navigation">
+        <h3>Policy</h3>
+        <ul class="quicklink">
+            <li><a href="Terms&Conditions.html">Terms & Conditions</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-navigation">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+            <a href="https://facebook.com" class="fa fa-facebook"></a>
+            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            <a href="https://instagram.com" class="fa fa-instagram"></a>
+        </div>
+    </div>
+    <div class ="logo_container" style="position: relative;">
+        <a href="home.html" id="logo">The Gallery Café<br></a>
+        Beyond a Meal
+    </div>
+    <p style="color: black; margin-top: 50px; padding-bottom: 0%;">&copy; 2024 The Gallery Café. All rights reserved.</p>
+</footer>
+  
+</body>
+</html>
