@@ -1,4 +1,4 @@
-This is a webApplication for the gallery cafe restaurant using HTML,CSS,JAVA SCRIPT and PHP.
+This is a webApplication for the gallery cafe restaurant using HTML,CSS,JAVASCRIPT and PHP.
 
 Database Name: 114_a
 
